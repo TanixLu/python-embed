@@ -1,6 +1,5 @@
 from setuptools import setup, find_packages
 from setuptools.command.install import install
-import sys
 import shutil
 import zipfile
 from pathlib import Path
@@ -51,7 +50,7 @@ class CustomInstall(install):
         if hasattr(self, "install_lib") and self.install_lib:
             dest_dir = Path(self.install_lib).resolve()
         else:
-            dest_dir = Path(sys.executable).parent.resolve()
+            raise ValueError("install_lib is not set")
 
         print(f"Extracting {py_tag} from {data_zip} to {dest_dir}")
         self._extract_subdir(data_zip, py_tag, dest_dir)
