@@ -1,0 +1,5 @@
+__pycache__/
+dist/
+.vscode/
+src*/python_embed.egg-info/
+embed/
